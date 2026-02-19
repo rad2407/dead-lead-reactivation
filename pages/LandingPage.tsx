@@ -40,7 +40,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               <span className="text-sky-600 font-black uppercase tracking-[0.3em] text-[11px] italic">Standard Operating Procedure</span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-950 leading-[0.9] italic text-balance">
                 Dead Lead <br/>
-                <span className="text-sky-600 not-italic uppercase font-sans">Reactivation</span>
+                <span className="text-sky-600 not-italic uppercase font-sans">Reactivation!</span>
               </h1>
             </div>
             
