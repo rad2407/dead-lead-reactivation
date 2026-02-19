@@ -62,14 +62,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               ))}
             </div>
 
-            <div className="pt-8">
-              <button 
-                onClick={() => onNavigate(PageState.THANK_YOU)}
-                className="text-xs font-bold text-slate-400 hover:text-sky-600 uppercase tracking-widest flex items-center gap-2 transition-colors"
-              >
-                Skip to Content (Demo) <ArrowRight className="w-3 h-3" />
-              </button>
-            </div>
+            {/* Removed 'Skip to Content (Demo)' button */}
           </div>
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
