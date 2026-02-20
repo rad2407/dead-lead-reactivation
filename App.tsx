@@ -13,11 +13,32 @@ const App = () => {
     script.src = ASSETS.GHL_SCRIPT;
     script.async = true;
     document.body.appendChild(script);
-    return () => { 
+    return () => {
       if (document.body && document.body.contains(script)) {
-        document.body.removeChild(script); 
+        document.body.removeChild(script);
       }
     };
+  }, []);
+
+  // Listen for GHL form submission postMessage and navigate to Thank You page
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      const data = event.data;
+      if (!data) return;
+
+      const isSubmission =
+        data.type === 'form_submitted' ||
+        data.type === 'hl_form_submitted' ||
+        (typeof data === 'string' && data === 'form_submitted') ||
+        (Array.isArray(data) && data[0] === 'set-sticky-contacts');
+
+      if (isSubmission) {
+        navigate(PageState.THANK_YOU);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   const navigate = (page: PageState) => {
