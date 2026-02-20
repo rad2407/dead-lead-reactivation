@@ -59,6 +59,7 @@ const App = () => {
     };
 
     window.addEventListener('message', handleMessage);
+    console.log('[DLR v4] GHL listener active');
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
