@@ -32,7 +32,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       {/* Full-page loader — hides iframe glitch on initial load */}
       <div
         className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950 pointer-events-none"
-        style={{ opacity: formLoaded ? 0 : 1, transition: 'opacity 1.4s ease' }}
+        style={{ opacity: formLoaded ? 0 : 1, transition: 'opacity 2.4s ease' }}
       >
         <div className="w-12 h-12 rounded-full border-4 border-sky-400/30 border-t-sky-400 animate-spin" />
       </div>
