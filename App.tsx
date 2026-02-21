@@ -91,6 +91,9 @@ const App = () => {
   }, []);
 
   const navigate = (page: PageState) => {
+    if (page === PageState.THANK_YOU) {
+      sessionStorage.setItem('dlr_submitted', '1');
+    }
     currentPageRef.current = page;
     const path = page === PageState.LANDING ? '/' : `/${page}`;
     window.history.pushState({}, '', path);

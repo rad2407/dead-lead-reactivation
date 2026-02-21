@@ -21,6 +21,13 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Guard: redirect to home if not arrived via form submission
+  React.useEffect(() => {
+    if (!sessionStorage.getItem('dlr_submitted')) {
+      onNavigate(PageState.LANDING);
+    }
+  }, []);
+
   const handlePlayVideo = async () => {
     if (videoRef.current) {
       try {
