@@ -167,10 +167,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           </div>
 
           {/* Right: Form Card */}
-          <div id="form" className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div id="form" className="lg:col-span-5 flex justify-center lg:justify-end relative">
             {/* Spinner shown while form card is invisible */}
             {!formLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 5 }}>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 10 }}>
                 <div className="w-10 h-10 rounded-full border-4 border-sky-400/30 border-t-sky-400 animate-spin" />
               </div>
             )}
