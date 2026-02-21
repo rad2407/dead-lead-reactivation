@@ -94,7 +94,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           {/* Left: Copy */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <span className="text-sky-500 font-black uppercase tracking-[0.35em] text-[11px]">SOP — Dead Leads Reactivation Protocol</span>
+              <span className="text-sky-500 font-black uppercase tracking-[0.35em] text-[11px]">Dead Leads Reactivation Protocol</span>
               <h1
                 className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.88] text-balance"
                 style={{ textShadow: '0 2px 0 rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.15)' }}
