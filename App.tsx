@@ -33,6 +33,15 @@ const App = () => {
 
   // Track whether the form iframe has been seen at full size
   const formLoadedRef = useRef(false);
+  // Guard: don't allow height-drop redirect until iframe has been stable for 6s
+  const allowHeightRedirectRef = useRef(false);
+  // Guard: track current page so we only redirect from landing
+  const currentPageRef = useRef<PageState>(getInitialPage());
+
+  useEffect(() => {
+    const timer = setTimeout(() => { allowHeightRedirectRef.current = true; }, 6000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Listen for GHL form submission postMessage and navigate to Thank You page
   useEffect(() => {
@@ -40,12 +49,18 @@ const App = () => {
       const data = event.data;
       if (!data) return;
 
+      // Log ALL non-null messages so we can see what GHL is sending
+      console.log('[DLR] msg on page=' + currentPageRef.current + ':', JSON.stringify(data));
+
+      // Only act when the user is on the landing page
+      if (currentPageRef.current !== PageState.LANDING) return;
+
       // Explicit GHL submission events
+      // NOTE: set-sticky-contacts is NOT a submission — GHL fires it on load for returning visitors
       const isExplicitSubmission =
         data.type === 'form_submitted' ||
         data.type === 'hl_form_submitted' ||
-        (typeof data === 'string' && data === 'form_submitted') ||
-        (Array.isArray(data) && data[0] === 'set-sticky-contacts');
+        (typeof data === 'string' && data === 'form_submitted');
 
       if (isExplicitSubmission) {
         navigate(PageState.THANK_YOU);
@@ -53,6 +68,7 @@ const App = () => {
       }
 
       // Fallback: detect submission via iframe height drop (form ~500px → thank you ~174px)
+      // Only fires after 6s to avoid false positives from iframe initial load flicker
       if (typeof data === 'string' && data.startsWith('[iFrameSizer]')) {
         const parts = data.split(':');
         if (parts.length >= 2) {
@@ -60,7 +76,7 @@ const App = () => {
           if (!isNaN(height)) {
             if (height >= 400) {
               formLoadedRef.current = true;
-            } else if (height < 250 && formLoadedRef.current) {
+            } else if (height < 180 && formLoadedRef.current && allowHeightRedirectRef.current) {
               formLoadedRef.current = false;
               navigate(PageState.THANK_YOU);
             }
@@ -70,11 +86,12 @@ const App = () => {
     };
 
     window.addEventListener('message', handleMessage);
-    console.log('[DLR v4] GHL listener active');
+    console.log('[DLR v5] GHL listener active');
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   const navigate = (page: PageState) => {
+    currentPageRef.current = page;
     const path = page === PageState.LANDING ? '/' : `/${page}`;
     window.history.pushState({}, '', path);
     window.scrollTo({ top: 0, behavior: 'smooth' });

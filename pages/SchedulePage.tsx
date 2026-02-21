@@ -29,10 +29,10 @@ const SchedulePage: React.FC = () => {
       <main className="max-w-7xl mx-auto py-12 px-6">
         <div className="text-center mb-12 space-y-4">
           <h1 className="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter">
-            🗓️ LOCK IN YOUR <span className="text-sky-600">48-HOUR CHALLENGE.</span>
+            🗓️ LOCK IN YOUR <span className="text-sky-600">72-HOUR REVENUE RECOVERY.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-500 font-medium">
-            Pick a time below to activate your Dead Lead Resurrection Campaign.
+            Pick a time below to activate your Dead Lead Reactivation Campaign.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ const SchedulePage: React.FC = () => {
                 </div>
                 <div>
                   <p className={`font-black text-base leading-snug ${qualified ? 'text-green-800' : 'text-slate-800'}`}>
-                    I understand I have at least $5,000 in recoverable revenue sitting in my dead lead list right now — and I'm ready to activate it on this call.
+                    I am an Alpha owner with 100+ past leads. I understand I have uncollected revenue in my dead lead list — and I'm ready to activate it on this call.
                   </p>
                   {!qualified && <p className="text-[11px] text-amber-700 font-bold mt-2 uppercase tracking-wider">↑ Check this box to unlock your booking slot</p>}
                   {qualified && <p className="text-[11px] text-green-700 font-bold mt-2 uppercase tracking-wider">✓ Confirmed — your calendar is unlocked below</p>}
@@ -63,7 +63,7 @@ const SchedulePage: React.FC = () => {
                   style={{ width: '100%', height: '700px', border: 'none', overflow: 'hidden' }}
                   scrolling="no"
                   id="Zlj3aYfrELKgdqD8D9Jo_1771467338492"
-                  title="48-Hour Revenue Challenge"
+                  title="72-Hour Revenue Recovery"
                 ></iframe>
                 <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
                   <p className="text-[9px] text-slate-300 font-bold uppercase tracking-[0.2em]">Secure Booking Terminal</p>
@@ -80,12 +80,12 @@ const SchedulePage: React.FC = () => {
               </div>
 
               <h3 className="text-2xl font-black mb-8 uppercase tracking-tight text-sky-400 flex items-center gap-3">
-                <Trophy className="w-6 h-6" /> THE GAME PLAN
+                <Trophy className="w-6 h-6" /> THE 72-HOUR GAME PLAN
               </h3>
 
               <div className="space-y-10 relative z-10">
                 <div className="space-y-6">
-                  <p className="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">On this 15-minute call, we will:</p>
+                  <p className="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">On this 20-minute call, we will:</p>
                   
                   {[
                     { icon: <Search className="w-5 h-5 text-sky-400" />, title: "AUDIT", desc: "Look at your current lead list (CSV or CRM)." },
@@ -120,7 +120,7 @@ const SchedulePage: React.FC = () => {
               </div>
               <div>
                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Confirmation</p>
-                <p className="text-sm font-bold text-slate-700 leading-tight">Once booked, you will be redirected to the Final Launch Prep page.</p>
+                <p className="text-sm font-bold text-slate-700 leading-tight">Once booked, your 72-hour clock starts. You'll get a confirmation with everything you need.</p>
               </div>
             </div>
           </div>

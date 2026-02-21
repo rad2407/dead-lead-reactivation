@@ -56,8 +56,8 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
       <main className="max-w-7xl mx-auto py-12 px-6">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl md:text-7xl font-black text-slate-950 tracking-tighter leading-none">
-            🛑 WAIT. DO YOU WANT TO <br/> 
-            <span className="text-red-600 uppercase underline decoration-4 underline-offset-8 italic font-serif text-balance">MAKE $2K - $10K OR MORE IN THE NEXT 48 HOURS?</span>
+            🛑 WAIT. DO YOU WANT TO <br/>
+            <span className="text-red-600 uppercase underline decoration-4 underline-offset-8 italic font-serif text-balance">MAKE $2K - $10K OR MORE IN THE NEXT 72 HOURS?</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto italic">
             The SOP is in your inbox. But reading it won't put cash in the bank. <span className="text-slate-900 font-bold">Execution will.</span>
@@ -81,12 +81,12 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
               <div className="mt-12 bg-slate-950 rounded-2xl p-8 text-white relative border-l-8 border-sky-500 shadow-2xl">
                 <div className="flex items-center gap-3 mb-6">
                   <Trophy className="w-8 h-8 text-sky-400" />
-                  <h3 className="text-2xl font-black uppercase tracking-tight">THE 48-HOUR CHALLENGE</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight">THE 72-HOUR REVENUE RECOVERY</h3>
                 </div>
                 
                 <ul className="space-y-4 mb-8">
                   {[
-                    { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span><strong>Bring us your list</strong> (even just 50 old leads).</span> },
+                    { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span><strong>Bring us your list</strong> (even just 100 old leads).</span> },
                     { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span>We will upload them into <strong>The Revenue Accelerator</strong> for you.</span> },
                     { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span>We will launch the campaign <strong>LIVE</strong> on a call.</span> },
                   ].map((item, i) => (
@@ -98,9 +98,9 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
                 </ul>
 
                 <div className="bg-sky-500/10 border border-sky-500/30 rounded-xl p-6 mb-8">
-                  <p className="text-xl font-black text-white leading-tight mb-2 italic">The Guarantee:</p>
+                  <p className="text-xl font-black text-white leading-tight mb-2 italic">72-Hour Performance Proof:</p>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    If we don't find you at least <span className="text-sky-400 font-bold">$2,000 in potential revenue</span> within 48 hours, you pay absolutely nothing.
+                    I run the protocol. You keep the cash. I don't take a single cent of the revenue we generate during these 72 hours. <span className="text-sky-400 font-bold">If I can't find $2,000 in your "dead" list, I've wasted my time — not yours.</span>
                   </p>
                 </div>
 
@@ -112,10 +112,10 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate(PageState.SCHEDULE)}
                   className="w-full bg-orange-600 hover:bg-orange-500 text-white font-black text-2xl py-8 rounded-2xl shadow-2xl flex items-center justify-center gap-4 transition-transform active:scale-95 group shadow-orange-500/20"
                 >
-                  🚀 ACCEPT THE 48-HOUR CHALLENGE <ChevronRight className="w-8 h-8 group-hover:translate-x-3 transition-transform" />
+                  🚀 ACTIVATE MY 72-HOUR RECOVERY <ChevronRight className="w-8 h-8 group-hover:translate-x-3 transition-transform" />
                 </button>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">
-                  <div className="flex items-center gap-2"><Users className="w-4 h-4" /> Limited to 5 Spots this week</div>
+                  <div className="flex items-center gap-2"><Users className="w-4 h-4" /> Alpha Spots — Limited this week</div>
                   <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Zero Risk. Zero Tech Hassle.</div>
                 </div>
               </div>

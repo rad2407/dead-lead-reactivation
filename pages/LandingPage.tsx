@@ -1,14 +1,12 @@
 import React from 'react';
-import { 
-  ShieldCheck, 
-  CheckCircle2, 
-  TrendingDown, 
-  ArrowRight, 
-  Lock, 
-  BarChart3 
+import {
+  ShieldCheck,
+  CheckCircle2,
+  TrendingDown,
+  Lock,
+  BarChart3
 } from 'lucide-react';
 import Logo from '../components/Logo';
-import BookMockup from '../components/BookMockup';
 import { PageState, LINKS } from '../constants';
 
 interface LandingPageProps {
@@ -30,49 +28,108 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
         </div>
       </nav>
 
-      <header className="pt-12 md:pt-16 pb-24 px-6 relative bg-slate-50 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-sky-100/20 blur-3xl -z-0"></div>
-        
-        <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
-          
+      <header className="relative bg-slate-950 overflow-hidden">
+        {/* Dot grid texture */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(148,163,184,0.12) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        {/* Ambient glow — top right */}
+        <div
+          className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] opacity-[0.14] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #0ea5e9, transparent 65%)' }}
+        />
+        {/* Ambient glow — bottom left */}
+        <div
+          className="absolute bottom-0 left-[-5%] w-[500px] h-[500px] opacity-[0.06] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, #38bdf8, transparent 65%)' }}
+        />
+        {/* 3D floating panel — top right depth layer */}
+        <div
+          className="absolute top-[6%] right-[3%] w-[360px] h-[240px] rounded-[2.5rem] pointer-events-none"
+          style={{
+            background: 'linear-gradient(145deg, rgba(255,255,255,0.025), rgba(14,165,233,0.04))',
+            border: '1px solid rgba(255,255,255,0.045)',
+            transform: 'perspective(900px) rotateY(-20deg) rotateX(7deg)',
+          }}
+        />
+        {/* 3D floating panel — lower left depth layer */}
+        <div
+          className="absolute bottom-[18%] left-[1%] w-[200px] h-[130px] rounded-[1.5rem] pointer-events-none"
+          style={{
+            background: 'rgba(14,165,233,0.03)',
+            border: '1px solid rgba(255,255,255,0.035)',
+            transform: 'perspective(600px) rotateY(14deg) rotateX(-5deg)',
+          }}
+        />
+
+        {/* Status badge */}
+        <div className="max-w-7xl mx-auto px-6 pt-10 pb-2 relative z-10">
+          <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2.5 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+            <span className="text-[11px] font-black text-white/50 uppercase tracking-[0.25em]">Recovery System Active</span>
+            <span className="text-white/20 px-1">|</span>
+            <span className="text-[11px] font-black text-sky-400 uppercase tracking-[0.25em]">5 Alpha Spots This Week</span>
+          </div>
+        </div>
+
+        {/* Main hero grid */}
+        <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 px-6 pt-10 pb-16">
+
+          {/* Left: Copy */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-2 text-balance">
-              <span className="text-sky-600 font-black uppercase tracking-[0.3em] text-[11px] italic">Standard Operating Procedure</span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-950 leading-[0.9] italic text-balance">
-                Dead Lead <br/>
-                <span className="text-sky-600 not-italic uppercase font-sans">Reactivation!</span>
+            <div className="space-y-3">
+              <span className="text-sky-500 font-black uppercase tracking-[0.35em] text-[11px]">Free Protocol — For Established Pros Only</span>
+              <h1
+                className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.88] text-balance"
+                style={{ textShadow: '0 2px 0 rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.15)' }}
+              >
+                The 72-Hour <br/>
+                <span className="text-sky-400">Revenue<br className="hidden md:block" />Recovery.</span>
               </h1>
             </div>
-            
-            <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed italic border-l-4 border-sky-500 pl-8 max-w-2xl">
-              "How to Generate $2,000+ in Immediate Revenue from Old Leads (Without Spending $1 on Ads)"
+
+            <p className="text-xl md:text-2xl text-slate-300 font-medium leading-relaxed border-l-4 border-sky-500 pl-8 max-w-2xl">
+              If you have 100+ past leads sitting untouched in your database, you are not broke.{' '}
+              <span className="text-white font-black">You are sitting on uncollected cash.</span>
             </p>
 
-            <div className="space-y-6 pt-2">
+            <div className="space-y-5 pt-2">
               {[
-                { icon: <CheckCircle2 className="w-6 h-6 text-sky-600" />, text: <span><strong>The "9-Word Weapon":</strong> The single text message that gets a 98% open rate and demands a reply.</span> },
-                { icon: <CheckCircle2 className="w-6 h-6 text-sky-600" />, text: <span><strong>The Math:</strong> Why ignoring old leads is costing you $17,500/year in wasted ad spend.</span> },
-                { icon: <CheckCircle2 className="w-6 h-6 text-sky-600" />, text: <span><strong>The Protocol:</strong> A step-by-step guide to launching this campaign in 20 minutes.</span> },
-                { icon: <TrendingDown className="w-6 h-6 text-slate-400" />, text: <span className="text-slate-500 italic">No Ads Required. You already paid for these leads. Now let's cash them in.</span> },
+                { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span className="text-slate-200"><strong className="text-white">The Protocol:</strong> The exact SMS sequence that gets dead leads to respond within minutes — not days.</span> },
+                { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span className="text-slate-200"><strong className="text-white">The Math:</strong> Why your "dead" lead list is worth more than your next ad campaign.</span> },
+                { icon: <CheckCircle2 className="w-5 h-5 text-sky-400" />, text: <span className="text-slate-200"><strong className="text-white">The Standard:</strong> We identify at least $2,000 in potential revenue within 72 hours — or we've wasted our time, not yours.</span> },
+                { icon: <TrendingDown className="w-5 h-5 text-slate-600" />, text: <span className="text-slate-400 italic">No ads. No commissions. No tech headaches. You keep 100% of every dollar recovered.</span> },
               ].map((item, i) => (
-                <div key={i} className="flex gap-5 items-start text-lg md:text-xl">
+                <div key={i} className="flex gap-4 items-start text-base md:text-lg">
                   <div className="mt-1 flex-shrink-0">{item.icon}</div>
-                  <p className="text-slate-800 leading-tight">{item.text}</p>
+                  <p className="leading-snug">{item.text}</p>
                 </div>
               ))}
             </div>
-
-            {/* Removed 'Skip to Content (Demo)' button */}
           </div>
 
+          {/* Right: Form Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-2xl relative w-full max-w-[440px]">
-              <div className="bg-slate-950 p-8 text-center flex flex-col items-center">
-                <BookMockup />
-                <h3 className="text-base font-bold mt-8 text-white/90 uppercase tracking-widest">Where should I send your map?</h3>
-              </div>
-              
-              <div className="p-2 min-h-[440px] bg-white">
+            <div className="relative w-full max-w-[420px] pb-4 pr-4">
+              {/* Stacked depth — layer 2 (furthest back) */}
+              <div
+                className="absolute inset-0 rounded-[2rem] translate-x-4 translate-y-4"
+                style={{ background: 'rgba(14,165,233,0.08)', border: '1px solid rgba(14,165,233,0.12)' }}
+              />
+              {/* Stacked depth — layer 1 */}
+              <div
+                className="absolute inset-0 rounded-[2rem] translate-x-2 translate-y-2"
+                style={{ background: 'rgba(14,165,233,0.13)', border: '1px solid rgba(14,165,233,0.18)' }}
+              />
+            <div
+              className="bg-white rounded-[2rem] overflow-hidden relative border-t-[3px] border-sky-400"
+              style={{ boxShadow: '0 40px 120px -20px rgba(14,165,233,0.45), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.6)' }}
+            >
+              <div className="pt-5 px-2 pb-0 bg-white">
                 <iframe
                   src="https://link.digitalfootprintsolutions.com/widget/form/ukawrj8xBEEsOhWQnLMe"
                   style={{ width: '100%', height: '428px', border: 'none' }}
@@ -91,10 +148,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                   title="Form 68"
                 ></iframe>
               </div>
-
-              <div className="px-10 pb-10 space-y-4">
+              <div className="px-8 pb-8 space-y-4">
                 <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                  <Lock className="w-3 h-3 text-sky-600" /> 100% SECURE • INSTANT ACCESS
+                  <Lock className="w-3 h-3 text-sky-500" /> 100% Secure • Instant Access
                 </div>
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center">
                   <p className="text-[11px] text-amber-800 font-bold leading-relaxed">
@@ -103,8 +159,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </main>
+
+        {/* Proof strip */}
+        <div className="max-w-7xl mx-auto px-6 border-t border-white/[0.06] relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
+            {[
+              { val: '$50', label: 'Avg. Cost Per Lead' },
+              { val: '70%', label: 'Leads Never Followed Up' },
+              { val: '$17,500', label: 'Avg. Left on the Table' },
+              { val: '72 Hrs', label: 'To First Revenue Signal' },
+            ].map((stat, i) => (
+              <div key={i} className="py-10 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-black text-white font-serif italic tracking-tight">{stat.val}</div>
+                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mt-1.5">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </header>
 
       {/* Math Section */}
@@ -150,6 +224,90 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                       350 leads x $50 = $17,500 worth of inventory sitting on a shelf.
                     </p>
                 </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-28 px-6 bg-slate-950 relative overflow-hidden">
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(148,163,184,0.08) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        {/* Center glow */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] opacity-[0.1] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, #0ea5e9, transparent 70%)' }}
+        />
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Eyebrow */}
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-5 py-2.5 text-[11px] font-black text-sky-400 uppercase tracking-[0.3em]">
+              ★ Alpha Case Study — Real Result
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Photo + Result Badge */}
+            <div className="relative">
+              <div className="rounded-[2.5rem] overflow-hidden relative" style={{ aspectRatio: '4/3' }}>
+                <img
+                  src="/knockdown-truck.jpg"
+                  alt="Knockdown Pest Solutions branded truck"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <div className="bg-black/50 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 flex items-center gap-3">
+                    <img src="/knockdown-logo.png" alt="Knockdown Pest Solutions" className="w-10 h-10 object-contain rounded-full bg-white p-0.5" />
+                    <div>
+                      <div className="text-white font-black text-sm tracking-wide leading-tight">KNOCKDOWN PEST SOLUTIONS</div>
+                      <div className="text-sky-400 text-[11px] font-bold uppercase tracking-[0.2em] mt-0.5">Miami & Fort Lauderdale, FL</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Floating result badge */}
+              <div
+                className="absolute -top-5 -right-5 bg-sky-500 text-white rounded-2xl px-6 py-4 text-center"
+                style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.5)' }}
+              >
+                <div className="text-3xl font-black font-serif italic leading-none">$3,200</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.15em] opacity-90 mt-1">Identified in 72 Hours</div>
+              </div>
+            </div>
+
+            {/* Right: Quote */}
+            <div className="space-y-8">
+              <h3
+                className="text-2xl md:text-3xl font-black text-white leading-tight font-serif italic"
+                style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}
+              >
+                "I thought my old lead list was a graveyard. Ray found $3,200 in 72 hours without me picking up the phone."
+              </h3>
+
+              <div className="border-l-4 border-sky-500 pl-8 space-y-4 text-slate-300 text-base leading-relaxed">
+                <p>"I've been in the truck all summer. I had a list of about 180 people who called for one-time ant or wasp sprays last season, but I never had the time to follow up and get them on a quarterly plan. I honestly thought those leads were dead.</p>
+                <p>Ray ran his 72-hour 'Revenue Recovery' protocol on Tuesday. By Thursday night, we had 14 responses. We booked 5 new quarterly service contracts and 2 termite inspections immediately.</p>
+                <p>That's over $3,200 in annual contract value identified in three days — and I didn't have to spend a dime on new Google Ads or cold calling. <span className="text-white font-bold">If you have a database and you aren't running this, you're literally throwing money away."</span></p>
+              </div>
+
+              <div className="flex items-center gap-5 pt-2">
+                <div className="w-20 h-20 rounded-2xl bg-white flex items-center justify-center flex-shrink-0 p-2.5">
+                  <img src="/knockdown-logo.png" alt="Knockdown Pest Solutions logo" className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <div className="text-white font-black text-base">Jonathan & Ricky Plummer</div>
+                  <div className="text-sky-400 text-sm font-bold">Knockdown Pest Solutions</div>
+                  <div className="text-slate-500 text-[11px] uppercase tracking-[0.2em] font-bold mt-0.5">Miami & Fort Lauderdale, FL</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
