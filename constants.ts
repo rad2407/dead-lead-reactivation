@@ -13,5 +13,6 @@ export const LINKS = {
 export enum PageState {
   LANDING = 'landing',
   THANK_YOU = 'thank-you',
-  SCHEDULE = 'schedule'
+  SCHEDULE = 'schedule',
+  SOP = 'sop'
 }

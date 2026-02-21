@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import LandingPage from './pages/LandingPage';
 import ThankYouPage from './pages/ThankYouPage';
 import SchedulePage from './pages/SchedulePage';
+import SOPPage from './pages/SOPPage';
 import { PageState, ASSETS } from './constants';
 
 const App = () => {
@@ -76,6 +77,8 @@ const App = () => {
         return <ThankYouPage onNavigate={navigate} />;
       case PageState.SCHEDULE:
         return <SchedulePage />;
+      case PageState.SOP:
+        return <SOPPage onNavigate={navigate} />;
       default:
         return <LandingPage onNavigate={navigate} />;
     }
