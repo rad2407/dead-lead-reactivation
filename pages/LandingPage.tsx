@@ -30,11 +30,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-sky-100 selection:text-sky-900">
       {/* Full-page loader — hides iframe glitch on initial load */}
-      {!formLoaded && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950">
-          <div className="w-12 h-12 rounded-full border-4 border-sky-400/30 border-t-sky-400 animate-spin" />
-        </div>
-      )}
+      <div
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950 pointer-events-none"
+        style={{ opacity: formLoaded ? 0 : 1, transition: 'opacity 1.4s ease' }}
+      >
+        <div className="w-12 h-12 rounded-full border-4 border-sky-400/30 border-t-sky-400 animate-spin" />
+      </div>
       <nav className="border-b border-slate-100 py-4 px-6 sticky top-0 bg-white/95 backdrop-blur-md z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Logo />
