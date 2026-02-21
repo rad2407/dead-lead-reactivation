@@ -5,8 +5,18 @@ import SchedulePage from './pages/SchedulePage';
 import SOPPage from './pages/SOPPage';
 import { PageState, ASSETS } from './constants';
 
+const getInitialPage = (): PageState => {
+  const path = window.location.pathname;
+  switch (path) {
+    case '/sop': return PageState.SOP;
+    case '/thank-you': return PageState.THANK_YOU;
+    case '/schedule': return PageState.SCHEDULE;
+    default: return PageState.LANDING;
+  }
+};
+
 const App = () => {
-  const [currentPage, setCurrentPage] = useState<PageState>(PageState.LANDING);
+  const [currentPage, setCurrentPage] = useState<PageState>(getInitialPage());
 
   // Load external form scripts once
   useEffect(() => {
@@ -65,9 +75,17 @@ const App = () => {
   }, []);
 
   const navigate = (page: PageState) => {
+    const path = page === PageState.LANDING ? '/' : `/${page}`;
+    window.history.pushState({}, '', path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    const handlePopState = () => setCurrentPage(getInitialPage());
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const renderPage = () => {
     switch (currentPage) {

@@ -14,4 +14,11 @@ echo "<pre>NPM Build:\n$build</pre>";
 $copy = shell_exec("cp -r $repo/dist/* $webroot/ 2>&1");
 echo "<pre>Deploy:\n$copy</pre>";
 
+// 4. Create SPA route directories so /sop, /schedule, /thank-you work directly
+$routes = ['sop', 'schedule', 'thank-you'];
+foreach ($routes as $route) {
+    shell_exec("mkdir -p $webroot/$route && cp $webroot/index.html $webroot/$route/index.html 2>&1");
+}
+echo "<pre>Routes created.</pre>";
+
 echo "<pre>Done.</pre>";
