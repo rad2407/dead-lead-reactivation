@@ -168,6 +168,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
 
           {/* Right: Form Card */}
           <div id="form" className="lg:col-span-5 flex justify-center lg:justify-end">
+            {/* Spinner shown while form card is invisible */}
+            {!formLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 5 }}>
+                <div className="w-10 h-10 rounded-full border-4 border-sky-400/30 border-t-sky-400 animate-spin" />
+              </div>
+            )}
             <div className="relative w-full max-w-[420px] pb-4 pr-4">
               {/* Stacked depth — layer 2 (furthest back) */}
               <div
@@ -181,20 +187,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               />
             <div
               className="bg-white rounded-[2rem] overflow-hidden relative border-t-[3px] border-sky-400"
-              style={{ boxShadow: '0 40px 120px -20px rgba(14,165,233,0.45), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.6)' }}
+              style={{
+                boxShadow: '0 40px 120px -20px rgba(14,165,233,0.45), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.6)',
+                opacity: formLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease',
+              }}
             >
-              <div className="pt-5 px-2 pb-0 bg-white relative">
-                {/* Skeleton loader — hides once iframe fires onLoad */}
-                {!formLoaded && (
-                  <div className="absolute inset-0 bg-white z-10 flex flex-col gap-4 px-6 pt-8 pb-4 animate-pulse">
-                    <div className="h-4 bg-slate-100 rounded-full w-1/2 mx-auto" />
-                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
-                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
-                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
-                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
-                    <div className="h-12 bg-slate-200 rounded-xl w-full mt-2" />
-                  </div>
-                )}
+              <div className="pt-5 px-2 pb-0 bg-white">
                 <iframe
                   src="https://link.digitalfootprintsolutions.com/widget/form/ukawrj8xBEEsOhWQnLMe"
                   style={{ width: '100%', height: '428px', border: 'none' }}
