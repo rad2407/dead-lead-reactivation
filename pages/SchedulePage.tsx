@@ -108,7 +108,7 @@ const SchedulePage: React.FC = () => {
                     <AlertTriangle className="w-4 h-4" /> Requirement
                   </div>
                   <p className="text-slate-200 text-sm leading-relaxed">
-                    You must have a list of at least <span className="text-white font-bold underline">50 past leads</span> (estimates sent but not sold) to qualify for this challenge.
+                    You must have a list of at least <span className="text-white font-bold underline">100 past leads</span> (estimates sent but not sold) to qualify for this challenge.
                   </p>
                 </div>
               </div>
