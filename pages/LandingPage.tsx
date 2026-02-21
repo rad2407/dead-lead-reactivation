@@ -440,8 +440,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               </h3>
 
               <div className="border-l-4 border-sky-500 pl-8 space-y-4 text-slate-300 text-base leading-relaxed">
-                <p>"I've been in the truck all summer. I had a list of about 180 people who called for one-time ant or wasp sprays last season, but I never had the time to follow up and get them on a quarterly plan. I honestly thought those leads were dead.</p>
-                <p>Ray ran his 72-hour 'Revenue Recovery' protocol on Tuesday. By Thursday night, we had 14 responses. We booked 5 new quarterly service contracts and 2 termite inspections immediately.</p>
+                <p>"I've been in the truck all winter. I had a list of about 180 people who called for one-time ant or wasp sprays last season, but I never had the time to follow up and get them on a quarterly plan. I honestly thought those leads were dead.</p>
+                <p>Ray, ran his 72-hour 'Revenue Recovery' protocol on Monday. By Thursday night, we had 14 responses. We booked 5 new quarterly service contracts and 2 termite inspections immediately.</p>
                 <p>That's over $3,200 in annual contract value identified in three days — and I didn't have to spend a dime on new Google Ads or cold calling. <span className="text-white font-bold">If you have a database and you aren't running this, you're literally throwing money away."</span></p>
               </div>
 
