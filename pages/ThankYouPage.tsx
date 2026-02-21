@@ -54,35 +54,35 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-950">
-      <div className="bg-green-600 text-white py-3 px-6 text-center font-bold text-sm tracking-wide shadow-lg flex items-center justify-center gap-3">
-        <CheckCircle2 className="w-5 h-5" /> THE SOP IS IN YOUR INBOX. 
+    <div className="min-h-screen bg-slate-950 font-sans text-white">
+      <div className="bg-sky-500/10 border-b border-sky-500/20 text-sky-400 py-3 px-6 text-center font-bold text-sm tracking-wide flex items-center justify-center gap-3">
+        <CheckCircle2 className="w-5 h-5" /> THE SOP IS IN YOUR INBOX.
         <span className="hidden md:inline opacity-80 font-normal">Check your email from Ray Daley.</span>
       </div>
       
       <main className="max-w-7xl mx-auto py-12 px-6">
         <div className="text-center space-y-4 mb-16">
-          <h1 className="text-4xl md:text-7xl font-black text-slate-950 tracking-tighter leading-none">
+          <h1 className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-none">
             🛑 WAIT. DO YOU WANT TO <br/>
-            <span className="text-red-600 uppercase underline decoration-4 underline-offset-8 italic font-serif text-balance">MAKE $2K - $10K OR MORE IN THE NEXT 72 HOURS?</span>
+            <span className="text-sky-400 uppercase underline decoration-4 underline-offset-8 italic font-serif text-balance">MAKE $2K - $10K OR MORE IN THE NEXT 72 HOURS?</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-3xl mx-auto italic">
-            The SOP is in your inbox. But reading it won't put cash in the bank. <span className="text-slate-900 font-bold">Execution will.</span>
+          <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-3xl mx-auto italic">
+            The SOP is in your inbox. But reading it won't put cash in the bank. <span className="text-white font-bold">Execution will.</span>
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7 space-y-10 order-2 lg:order-1">
-            <div className="bg-white rounded-[2rem] p-10 shadow-xl border border-slate-200 relative overflow-hidden">
+            <div className="bg-slate-900 rounded-[2rem] p-10 shadow-xl border border-white/10 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5">
                  <Target className="w-32 h-32" />
               </div>
               
-              <div className="prose prose-lg text-slate-700 space-y-6 leading-relaxed relative z-10">
-                <p className="font-bold text-slate-900">Most contractors download this PDF, read it, say 'Wow, great idea,' and then do absolutely nothing.</p>
+              <div className="prose prose-lg text-slate-300 space-y-6 leading-relaxed relative z-10">
+                <p className="font-bold text-white">Most contractors download this PDF, read it, say 'Wow, great idea,' and then do absolutely nothing.</p>
                 <p>They get busy. They forget. And their leads stay dead.</p>
-                <p className="text-xl font-black text-slate-950 italic">I don't want that for you.</p>
-                <p>I am looking for <span className="text-sky-600 font-black">5 "Alpha" owners</span> who want to run this play right now.</p>
+                <p className="text-xl font-black text-white italic">I don't want that for you.</p>
+                <p>I am looking for <span className="text-sky-400 font-black">5 "Alpha" owners</span> who want to run this play right now.</p>
               </div>
 
               <div className="mt-12 bg-slate-950 rounded-2xl p-8 text-white relative border-l-8 border-sky-500 shadow-2xl">
@@ -115,9 +115,10 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
               </div>
 
               <div className="mt-10 space-y-6">
-                <button 
+                <button
                   onClick={() => onNavigate(PageState.SCHEDULE)}
-                  className="w-full bg-orange-600 hover:bg-orange-500 text-white font-black text-2xl py-8 rounded-2xl shadow-2xl flex items-center justify-center gap-4 transition-transform active:scale-95 group shadow-orange-500/20"
+                  className="w-full text-white font-black text-2xl py-8 rounded-2xl shadow-2xl flex items-center justify-center gap-4 transition-all active:scale-95 hover:scale-[1.02] group"
+                  style={{ background: 'linear-gradient(135deg, #FF7A47 0%, #FF6231 55%, #E8511F 100%)', boxShadow: '0 8px 48px rgba(255,98,49,0.55)' }}
                 >
                   🚀 ACTIVATE MY 72-HOUR RECOVERY <ChevronRight className="w-8 h-8 group-hover:translate-x-3 transition-transform" />
                 </button>
@@ -172,11 +173,11 @@ const ThankYouPage: React.FC<ThankYouPageProps> = ({ onNavigate }) => {
           </div>
         </div>
       </main>
-      <footer className="py-20 text-center border-t border-slate-200 mt-20">
+      <footer className="py-20 text-center border-t border-white/10 mt-20">
         <div className="flex justify-center mb-6">
           <Logo />
         </div>
-        <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em]">
+        <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.5em]">
           Digital Footprint Solutions • The Revenue Accelerator
         </p>
       </footer>
