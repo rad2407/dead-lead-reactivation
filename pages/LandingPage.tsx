@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   ShieldCheck,
   CheckCircle2,
   TrendingDown,
   Lock,
-  BarChart3
+  BarChart3,
+  ChevronRight,
+  ChevronDown
 } from 'lucide-react';
 import Logo from '../components/Logo';
 import { PageState, LINKS } from '../constants';
@@ -14,6 +16,16 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
+  const [showArrow, setShowArrow] = useState(false);
+  const arrowTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleActivateCTA = () => {
+    setShowArrow(true);
+    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (arrowTimer.current) clearTimeout(arrowTimer.current);
+    arrowTimer.current = setTimeout(() => setShowArrow(false), 4000);
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-sky-100 selection:text-sky-900">
       <nav className="border-b border-slate-100 py-4 px-6 sticky top-0 bg-white/95 backdrop-blur-md z-50">
@@ -114,7 +126,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             {/* Hero CTA */}
             <div className="pt-4">
               <button
-                onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                onClick={handleActivateCTA}
                 className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-10 py-4 rounded-2xl transition-colors cursor-pointer"
                 style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
               >
@@ -123,6 +135,30 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               <p className="text-slate-500 text-[11px] font-bold mt-3 uppercase tracking-[0.15em]">
                 Zero commission · You keep 100% of the revenue · Requires 100+ leads
               </p>
+
+              {/* Blinking arrow — points right on desktop, down on mobile */}
+              {showArrow && (
+                <div className="mt-5 flex items-center gap-2 text-sky-400">
+                  <span className="text-[10px] font-black uppercase tracking-[0.25em] animate-pulse">
+                    {/* Desktop label */}
+                    <span className="hidden lg:inline">Your form is right here →</span>
+                    {/* Mobile label */}
+                    <span className="lg:hidden">Your form is below ↓</span>
+                  </span>
+                  {/* Desktop: right arrows */}
+                  <div className="hidden lg:flex gap-0.5">
+                    {([0, 1, 2] as const).map(i => (
+                      <ChevronRight key={i} className="w-6 h-6 animate-bounce" style={{ animationDelay: `${i * 120}ms`, opacity: 1 - i * 0.25 }} />
+                    ))}
+                  </div>
+                  {/* Mobile: down arrows */}
+                  <div className="flex lg:hidden flex-col gap-0.5">
+                    {([0, 1, 2] as const).map(i => (
+                      <ChevronDown key={i} className="w-6 h-6 animate-bounce" style={{ animationDelay: `${i * 120}ms`, opacity: 1 - i * 0.25 }} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
