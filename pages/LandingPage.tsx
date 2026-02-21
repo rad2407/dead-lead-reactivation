@@ -214,8 +214,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 ></iframe>
               </div>
               <div className="px-8 pb-8 space-y-4">
-                <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                  <Lock className="w-3 h-3 text-sky-500" /> 100% Secure · Instant Access
+                <div className="flex items-center justify-center text-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] w-full">
+                  <Lock className="w-3 h-3 text-sky-500 flex-shrink-0" /> 100% Secure · Instant Access
                 </div>
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center">
                   <p className="text-[11px] text-amber-800 font-bold leading-relaxed">
