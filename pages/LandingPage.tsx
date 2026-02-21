@@ -94,13 +94,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           {/* Left: Copy */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <span className="text-sky-500 font-black uppercase tracking-[0.35em] text-[11px]">Free Protocol — For Established Pros Only</span>
+              <span className="text-sky-500 font-black uppercase tracking-[0.35em] text-[11px]">SOP — Dead Leads Reactivation Protocol</span>
               <h1
                 className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[0.88] text-balance"
                 style={{ textShadow: '0 2px 0 rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.15)' }}
               >
                 The 72-Hour <br/>
-                <span className="text-sky-400">Revenue<br className="hidden md:block" />Recovery.</span>
+                <span className="text-sky-400">Revenue<br className="hidden md:block" /> Recovery.</span>
               </h1>
             </div>
 
@@ -351,8 +351,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             <div className="text-center mt-10">
               <button
                 onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-                className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-colors cursor-pointer"
-                style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+                className="inline-flex items-center gap-3 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                style={{ background: 'linear-gradient(135deg, #FF7A47 0%, #FF6231 55%, #E8511F 100%)', boxShadow: '0 8px 48px rgba(255,98,49,0.55)' }}
               >
                 SECURE MY 72-HOUR WINDOW
               </button>
@@ -502,8 +502,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           {/* CTA Button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-colors cursor-pointer"
-            style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+            className="inline-flex items-center gap-3 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: 'linear-gradient(135deg, #FF7A47 0%, #FF6231 55%, #E8511F 100%)', boxShadow: '0 8px 48px rgba(255,98,49,0.55)' }}
           >
             SECURE MY 72-HOUR WINDOW
           </button>
