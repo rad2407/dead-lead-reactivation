@@ -92,9 +92,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 ></iframe>
               </div>
 
-              <div className="px-10 pb-10">
+              <div className="px-10 pb-10 space-y-4">
                 <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
                   <Lock className="w-3 h-3 text-sky-600" /> 100% SECURE • INSTANT ACCESS
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center">
+                  <p className="text-[11px] text-amber-800 font-bold leading-relaxed">
+                    <span className="font-black uppercase tracking-wide">Note:</span> This protocol is specifically for established pros with 100+ past leads in their database.
+                  </p>
                 </div>
               </div>
             </div>

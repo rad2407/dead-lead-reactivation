@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Clock, 
   Trophy, 
@@ -12,6 +12,8 @@ import {
 import Logo from '../components/Logo';
 
 const SchedulePage: React.FC = () => {
+  const [qualified, setQualified] = useState(false);
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-950">
       <nav className="border-b border-slate-200 py-4 px-6 bg-white sticky top-0 z-50">
@@ -35,18 +37,37 @@ const SchedulePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Calendar */}
-          <div className="lg:col-span-7 bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden">
-            <div className="p-1 min-h-[600px] w-full bg-white relative">
-              <iframe 
-                src="https://link.digitalfootprintsolutions.com/widget/booking/Zlj3aYfrELKgdqD8D9Jo" 
-                style={{ width: '100%', height: '700px', border: 'none', overflow: 'hidden' }}
-                scrolling="no"
-                id="Zlj3aYfrELKgdqD8D9Jo_1771467338492"
-                title="48-Hour Revenue Challenge"
-              ></iframe>
-              <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                <p className="text-[9px] text-slate-300 font-bold uppercase tracking-[0.2em]">Secure Booking Terminal</p>
+          {/* Left Column: Qualifier Gate + Calendar */}
+          <div className="lg:col-span-7 space-y-4">
+            {/* Checkbox Hard Stop */}
+            <div className={`rounded-[2rem] border-2 p-8 transition-all duration-300 ${qualified ? 'bg-green-50 border-green-400' : 'bg-white border-amber-300'}`}>
+              <div className="flex items-start gap-5 cursor-pointer" onClick={() => setQualified(!qualified)}>
+                <div className={`mt-1 w-6 h-6 rounded-md border-2 flex-shrink-0 flex items-center justify-center transition-all duration-200 ${qualified ? 'bg-green-500 border-green-500' : 'border-amber-400 bg-white'}`}>
+                  {qualified && <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
+                </div>
+                <div>
+                  <p className={`font-black text-base leading-snug ${qualified ? 'text-green-800' : 'text-slate-800'}`}>
+                    I understand I have at least $5,000 in recoverable revenue sitting in my dead lead list right now — and I'm ready to activate it on this call.
+                  </p>
+                  {!qualified && <p className="text-[11px] text-amber-700 font-bold mt-2 uppercase tracking-wider">↑ Check this box to unlock your booking slot</p>}
+                  {qualified && <p className="text-[11px] text-green-700 font-bold mt-2 uppercase tracking-wider">✓ Confirmed — your calendar is unlocked below</p>}
+                </div>
+              </div>
+            </div>
+
+            {/* Calendar — revealed after checkbox */}
+            <div className={`bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden transition-all duration-500 ${qualified ? 'opacity-100' : 'opacity-30 pointer-events-none select-none'}`}>
+              <div className="p-1 min-h-[600px] w-full bg-white relative">
+                <iframe
+                  src="https://link.digitalfootprintsolutions.com/widget/booking/Zlj3aYfrELKgdqD8D9Jo"
+                  style={{ width: '100%', height: '700px', border: 'none', overflow: 'hidden' }}
+                  scrolling="no"
+                  id="Zlj3aYfrELKgdqD8D9Jo_1771467338492"
+                  title="48-Hour Revenue Challenge"
+                ></iframe>
+                <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
+                  <p className="text-[9px] text-slate-300 font-bold uppercase tracking-[0.2em]">Secure Booking Terminal</p>
+                </div>
               </div>
             </div>
           </div>
