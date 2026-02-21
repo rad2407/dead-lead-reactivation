@@ -110,10 +110,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 </div>
               ))}
             </div>
+
+            {/* Hero CTA */}
+            <div className="pt-4">
+              <button
+                onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-10 py-4 rounded-2xl transition-colors cursor-pointer"
+                style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+              >
+                ACTIVATE MY 72-HOUR RECOVERY
+              </button>
+              <p className="text-slate-500 text-[11px] font-bold mt-3 uppercase tracking-[0.15em]">
+                Zero commission · You keep 100% of the revenue · Requires 100+ leads
+              </p>
+            </div>
           </div>
 
           {/* Right: Form Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div id="form" className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[420px] pb-4 pr-4">
               {/* Stacked depth — layer 2 (furthest back) */}
               <div
@@ -150,7 +164,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               </div>
               <div className="px-8 pb-8 space-y-4">
                 <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                  <Lock className="w-3 h-3 text-sky-500" /> 100% Secure • Instant Access
+                  <Lock className="w-3 h-3 text-sky-500" /> 0% Commission · You Keep 100% of Every Dollar Recovered
                 </div>
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center">
                   <p className="text-[11px] text-amber-800 font-bold leading-relaxed">
@@ -165,12 +179,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
 
         {/* Proof strip */}
         <div className="max-w-7xl mx-auto px-6 border-t border-white/[0.06] relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
+          <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/[0.06]">
             {[
-              { val: '$50', label: 'Avg. Cost Per Lead' },
-              { val: '70%', label: 'Leads Never Followed Up' },
-              { val: '$17,500', label: 'Avg. Left on the Table' },
-              { val: '72 Hrs', label: 'To First Revenue Signal' },
+              { val: '85%+', label: 'Reach Rate' },
+              { val: '12–18%', label: 'Response Rate' },
+              { val: '5–10%', label: 'Re-Activation Rate' },
+              { val: '$2k–$7.5k', label: 'Identified Revenue' },
+              { val: '72 Hrs', label: 'Total Execution' },
             ].map((stat, i) => (
               <div key={i} className="py-10 px-6 text-center">
                 <div className="text-3xl md:text-4xl font-black text-white font-serif italic tracking-tight">{stat.val}</div>
@@ -193,11 +208,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="text-xl text-slate-600 space-y-8 leading-relaxed">
                 <p>If you are like most home service pros, you are obsessed with <span className="text-slate-950 font-black italic">"New."</span> New leads, new calls, new jobs.</p>
-                <p className="bg-sky-50 border-l-4 border-sky-600 p-10 text-slate-900 italic rounded-r-3xl shadow-sm leading-relaxed">
-                    "But what happens to the leads who don't buy immediately? They sit in your CRM gathering digital dust. <span className="text-sky-600 font-black not-italic underline decoration-2 underline-offset-4">You have a goldmine sitting in your 'Dead Lead' folder.</span>"
+                <p className="bg-sky-600 border-l-4 border-sky-400 p-10 text-white font-medium italic rounded-r-3xl shadow-lg leading-relaxed">
+                    "But what happens to the leads who don't buy immediately? They sit in your CRM gathering digital dust. <span className="text-sky-200 font-black not-italic underline decoration-2 underline-offset-4">You have a goldmine sitting in your 'Dead Lead' folder.</span>"
                 </p>
                 <p>In 2026, the business that wins isn't the one with the most leads. It's the one with the best follow-up.</p>
-                <p className="text-3xl font-black text-slate-950 uppercase tracking-tighter pt-4">This guide is your map to waking them up.</p>
+                <p className="text-3xl font-black text-slate-950 uppercase tracking-tighter pt-4">This is your map to reclaiming lost revenue.</p>
             </div>
 
             <div className="bg-slate-950 rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden border border-white/10">
@@ -224,6 +239,87 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                       350 leads x $50 = $17,500 worth of inventory sitting on a shelf.
                     </p>
                 </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Alpha Filter Section */}
+      <section className="py-32 px-6 bg-slate-50 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto">
+          {/* Eyebrow */}
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-5 py-2.5 text-[11px] font-black text-red-600 uppercase tracking-[0.3em]">
+              ⚠ Qualification Required
+            </span>
+          </div>
+
+          <div className="text-center mb-14 space-y-5">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter leading-[0.92]">
+              This Protocol Has One<br/><span className="text-sky-600">Hard Requirement.</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              If your database has fewer than 100 past leads, there is nothing to reactivate — we won't waste your time or ours. If you have the list, we have the protocol.
+            </p>
+            <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              The execution takes exactly 72 hours. The commission is $0.00. The revenue is 100% yours.
+            </p>
+          </div>
+
+          {/* Two requirement boxes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+            <div className="bg-white rounded-3xl p-10 border-2 border-slate-200 text-center shadow-sm">
+              <div className="text-6xl font-black text-sky-500 font-serif italic mb-3">100+</div>
+              <div className="text-slate-900 font-black text-lg uppercase tracking-tight mb-2">Past Leads in Your Database</div>
+              <div className="text-slate-500 text-sm leading-relaxed">Quotes, inquiries, estimates — any contact who didn't convert is a candidate for reactivation.</div>
+            </div>
+            <div className="bg-white rounded-3xl p-10 border-2 border-slate-200 text-center shadow-sm">
+              <div className="text-6xl font-black text-sky-500 font-serif italic mb-3">12+</div>
+              <div className="text-slate-900 font-black text-lg uppercase tracking-tight mb-2">Months in Operation</div>
+              <div className="text-slate-500 text-sm leading-relaxed">You need a real lead history. Startups don't have a dead lead problem — only established pros do.</div>
+            </div>
+          </div>
+
+          {/* Alpha Benchmarks dark card */}
+          <div className="bg-slate-950 rounded-[2rem] p-10">
+            <div className="text-center mb-8">
+              <div className="text-sky-400 text-[11px] font-black uppercase tracking-[0.35em] mb-2">Alpha Protocol Benchmarks</div>
+              <div className="text-white text-xl font-black">What the 72-Hour Execution Delivers</div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+              {[
+                { val: '85%+', label: 'Reach Rate', desc: 'Our AI actually gets through to their phones.' },
+                { val: '12–18%', label: 'Response Rate', desc: 'Real people texting back and re-engaging.' },
+                { val: '5–15%', label: 'Re-Activation Rate', desc: 'Dead leads now back in the pipeline or booked.' },
+              ].map((stat, i) => (
+                <div key={i} className="text-center border border-white/10 rounded-2xl p-6">
+                  <div className="text-4xl font-black text-white font-serif italic mb-1">{stat.val}</div>
+                  <div className="text-sky-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{stat.label}</div>
+                  <div className="text-slate-400 text-sm">{stat.desc}</div>
+                </div>
+              ))}
+            </div>
+            <div className="bg-sky-500/10 border border-sky-500/20 rounded-2xl p-6 text-center">
+              <p className="text-white font-bold text-base leading-relaxed">
+                Our 72-Hour Protocol typically identifies{' '}
+                <span className="text-sky-400 font-black">$2,000 – $7,500</span>{' '}
+                in immediate "found" revenue hiding in your existing database.{' '}
+                <span className="text-slate-300">We don't guess — we execute.</span>
+              </p>
+            </div>
+
+            {/* Mid-page CTA */}
+            <div className="text-center mt-10">
+              <button
+                onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-colors cursor-pointer"
+                style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+              >
+                SECURE MY 72-HOUR WINDOW
+              </button>
+              <p className="text-slate-500 text-[11px] font-bold uppercase tracking-[0.2em] mt-4">
+                Alpha spots limited this week · $0.00 commission · 100% execution
+              </p>
             </div>
           </div>
         </div>
@@ -310,6 +406,71 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Final Stand CTA */}
+      <section className="py-32 px-6 bg-slate-950 relative overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(148,163,184,0.08) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.12] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, #0ea5e9, transparent 65%)' }}
+        />
+
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          {/* Eyebrow */}
+          <div className="mb-10">
+            <span className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2.5 text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">
+              The 72-Hour Decision
+            </span>
+          </div>
+
+          {/* Contrast headline */}
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[0.9] mb-10 text-balance">
+            Revenue Rot Is Expensive.<br/>
+            <span className="text-sky-400">The Protocol Is Free.</span>
+          </h2>
+
+          {/* Body */}
+          <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-5">
+            Your database is not a graveyard — it's a dormant pipeline. Every day without a reactivation protocol is revenue quietly expiring in your CRM while you spend more on ads chasing leads you've already paid for once.
+          </p>
+          <p className="text-xl text-white font-bold leading-relaxed max-w-xl mx-auto mb-16">
+            The 72-Hour window opens once. We execute. You collect. $0.00 commission — guaranteed.
+          </p>
+
+          {/* Alpha Benchmarks strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+            {[
+              { val: '$0.00', label: 'Our Commission' },
+              { val: '72 Hrs', label: 'Total Execution' },
+              { val: '100%', label: 'Revenue Retained' },
+              { val: '5–15%', label: 'Avg Re-Activation' },
+            ].map((stat, i) => (
+              <div key={i} className="bg-white/[0.03] border border-white/[0.07] rounded-2xl py-6 px-4">
+                <div className="text-3xl font-black text-white font-serif italic mb-1">{stat.val}</div>
+                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-colors cursor-pointer"
+            style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+          >
+            SECURE MY 72-HOUR WINDOW
+          </button>
+          <p className="text-slate-600 text-[11px] font-bold uppercase tracking-[0.2em] mt-6">
+            Alpha spots limited this week · No commission · No risk · 100% execution
+          </p>
         </div>
       </section>
 
