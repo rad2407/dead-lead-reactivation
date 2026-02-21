@@ -127,8 +127,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             <div className="pt-4">
               <button
                 onClick={handleActivateCTA}
-                className="inline-flex items-center gap-3 bg-sky-500 hover:bg-sky-400 text-white font-black text-base uppercase tracking-[0.2em] px-10 py-4 rounded-2xl transition-colors cursor-pointer"
-                style={{ boxShadow: '0 8px 40px rgba(14,165,233,0.45)' }}
+                className="inline-flex items-center gap-3 text-white font-black text-lg uppercase tracking-[0.2em] px-12 py-5 rounded-2xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: 'linear-gradient(135deg, #FF7A47 0%, #FF6231 55%, #E8511F 100%)',
+                  boxShadow: '0 8px 48px rgba(255,98,49,0.55), 0 2px 0 rgba(255,255,255,0.15) inset',
+                }}
               >
                 ACTIVATE MY 72-HOUR RECOVERY
               </button>
