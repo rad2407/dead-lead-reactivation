@@ -100,7 +100,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 style={{ textShadow: '0 2px 0 rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.3), 0 24px 48px rgba(0,0,0,0.15)' }}
               >
                 The 72-Hour <br/>
-                <span className="text-sky-400">Revenue<br className="hidden md:block" /> Recovery.</span>
+                <span className="text-sky-400">Revenue<br /> Recovery.</span>
               </h1>
             </div>
 
@@ -203,7 +203,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               </div>
               <div className="px-8 pb-8 space-y-4">
                 <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                  <Lock className="w-3 h-3 text-sky-500" /> 0% Commission · You Keep 100% of Every Dollar Recovered
+                  <Lock className="w-3 h-3 text-sky-500" /> 100% Secure · Instant Access
                 </div>
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 text-center">
                   <p className="text-[11px] text-amber-800 font-bold leading-relaxed">
