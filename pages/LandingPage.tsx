@@ -17,6 +17,7 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
   const [showArrow, setShowArrow] = useState(false);
+  const [formLoaded, setFormLoaded] = useState(false);
   const arrowTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleActivateCTA = () => {
@@ -182,7 +183,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               className="bg-white rounded-[2rem] overflow-hidden relative border-t-[3px] border-sky-400"
               style={{ boxShadow: '0 40px 120px -20px rgba(14,165,233,0.45), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.6)' }}
             >
-              <div className="pt-5 px-2 pb-0 bg-white">
+              <div className="pt-5 px-2 pb-0 bg-white relative">
+                {/* Skeleton loader — hides once iframe fires onLoad */}
+                {!formLoaded && (
+                  <div className="absolute inset-0 bg-white z-10 flex flex-col gap-4 px-6 pt-8 pb-4 animate-pulse">
+                    <div className="h-4 bg-slate-100 rounded-full w-1/2 mx-auto" />
+                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
+                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
+                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
+                    <div className="h-10 bg-slate-100 rounded-xl w-full" />
+                    <div className="h-12 bg-slate-200 rounded-xl w-full mt-2" />
+                  </div>
+                )}
                 <iframe
                   src="https://link.digitalfootprintsolutions.com/widget/form/ukawrj8xBEEsOhWQnLMe"
                   style={{ width: '100%', height: '428px', border: 'none' }}
@@ -199,6 +211,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                   data-layout-iframe-id="inline-ukawrj8xBEEsOhWQnLMe"
                   data-form-id="ukawrj8xBEEsOhWQnLMe"
                   title="Form 68"
+                  onLoad={() => setFormLoaded(true)}
                 ></iframe>
               </div>
               <div className="px-8 pb-8 space-y-4">
